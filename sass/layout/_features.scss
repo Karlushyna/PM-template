@@ -1,0 +1,28 @@
+.features {
+  --card-item: 1;
+  @media screen and (min-width: 768px) {
+    --card-item: 2;
+  }
+  @media screen and (min-width: 1200px) {
+    --card-item: 4;
+  }
+}
+
+.features__title {
+  margin-bottom: 10px;
+  @include font(14px, 700, null, 1.14);
+
+  text-transform: uppercase;
+  color: var(--main-color);
+
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
+}
+.icon-box {
+  height: 120px;
+  background-color: var(--background-color);
+  @extend %align-list;
+  justify-content: center;
+  margin-bottom: var(--card-gap);
+}

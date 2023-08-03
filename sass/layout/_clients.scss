@@ -1,0 +1,59 @@
+.clients {
+  --card-item: 2;
+
+  @include tab {
+    --card-item: 3;
+  }
+  @include desk {
+    --card-item: 6;
+  }
+}
+
+.clients-list {
+  @media screen and (max-width: 767px) {
+    flex-direction: row;
+  }
+}
+.clients__item {
+  &:nth-child(2n) {
+    margin-left: var(--card-gap);
+  }
+  @include tab {
+    margin-left: var(--card-gap);
+  }
+
+  // margin-right: var(--card-gap);
+  // margin-bottom: var(--card-gap);
+  // width: calc((100% - var(--card-item) * 30px) / var(--card-item));
+}
+.clients__link {
+  height: 92px;
+  max-width: 210px;
+  border: 1px solid var(--icon-color);
+  border-radius: 4px;
+  background-color: var(--second-priority-color);
+
+  @extend %align-list;
+  justify-content: center;
+  transition: border var(--main-effect);
+  &:hover,
+  &:focus {
+    border: 1px solid var(--accent-color);
+  }
+
+  @include tab {
+    max-width: 226px;
+  }
+  @include desk {
+    max-width: 170px;
+  }
+}
+
+.clients__icon {
+  fill: var(--icon-color);
+  transition: fill var(--main-effect);
+  .clients__link:hover &,
+  .clients__link:focus & {
+    fill: var(--accent-color);
+  }
+}
